@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+build/
+dist/
+*.spec.bak
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+
+# 语言包体积大，运行时自动下载，勿提交
+*.vsix
+
+# 本地打包 / 启动脚本（不上传）
+译窗.spec
+编译软件.bat
+run_gui.py
+启动GUI.bat
