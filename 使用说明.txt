@@ -1,0 +1,26 @@
+译窗 — 使用说明
+================
+
+【这是什么】
+一键汉化 Cursor 的桌面工具。支持一键汉化、一键还原、修复校验。
+
+【推荐用法】
+1. 下载「译窗.exe」
+2. 若 Cursor 装在 Program Files：右键 → 以管理员身份运行
+3. 点击「一键汉化」
+4. 完全退出 Cursor（托盘也要退出）后再打开
+
+【源码运行】
+1. 安装 Python 3.8+（勾选 Add python.exe to PATH）
+2. 执行：pip install -r requirements.txt
+3. 执行：python -m app gui
+
+【还原】
+打开软件 →「一键还原」→ 重启 Cursor
+
+【若提示安装已损坏】
+点击「修复校验」。仍失败时请以管理员身份运行。
+
+【非默认安装路径】
+在软件中点「浏览」选择含 Cursor.exe 的文件夹，
+或设置：set CURSOR_INSTALL_DIR=D:\Program Files\cursor
