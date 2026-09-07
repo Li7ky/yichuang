@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>译窗</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="side">
+      <div class="brand-card">
+        <svg class="brand-logo" viewBox="0 0 36 36" width="36" height="36" aria-hidden="true">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1B3A4B"/>
+              <stop offset="100%" stop-color="#0F766E"/>
+            </linearGradient>
+          </defs>
+          <rect width="36" height="36" rx="10" fill="url(#g)"/>
+          <rect x="8" y="8" width="20" height="20" rx="2.5" fill="none" stroke="#E8F5F2" stroke-width="1.8"/>
+          <path d="M18 8 V28 M8 18 H28" stroke="#E8F5F2" stroke-width="1.6"/>
+          <circle cx="26.5" cy="9.5" r="5.2" fill="#D4A017"/>
+          <text x="26.5" y="11.6" text-anchor="middle" font-size="7.2" font-family="Microsoft YaHei UI, sans-serif" font-weight="700" fill="#1B3A4B">译</text>
+        </svg>
+        <div class="brand-text">
+          <div class="brand-name">译窗</div>
+          <div class="brand-sub">一键汉化 Cursor</div>
+        </div>
+      </div>
+
+      <div class="nav-label">功能菜单</div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="home">
+          <i class="accent"></i>
+          <span class="nav-copy">
+            <strong>汉化设置</strong>
+            <small>安装与还原中文界面</small>
+          </span>
+        </button>
+        <button class="nav-item" data-view="log">
+          <i class="accent"></i>
+          <span class="nav-copy">
+            <strong>运行记录</strong>
+            <small>查看操作输出日志</small>
+          </span>
+        </button>
+        <button class="nav-item" data-view="about">
+          <i class="accent"></i>
+          <span class="nav-copy">
+            <strong>关于软件</strong>
+            <small>版本与基本信息</small>
+          </span>
+        </button>
+      </nav>
+
+      <div class="side-foot"><span class="ver">版本 1.0</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="head">
+        <h1 id="page-title">汉化设置</h1>
+        <div class="head-right">
+          <div id="status-chip" class="chip muted"><i></i><span id="status-text">检测中</span></div>
+          <button id="btn-open-cursor" class="btn ghost">打开 Cursor</button>
+        </div>
+      </header>
+
+      <div class="stage">
+        <section id="view-home" class="page active">
+          <div class="alert">
+            <span class="alert-ico">!</span>
+            <div>
+              <div class="alert-title">操作前请先完全退出 Cursor</div>
+              <div class="alert-desc">含托盘图标。汉化或还原后重新打开才会生效。</div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="btn-install" class="btn primary">一键汉化</button>
+            <button id="btn-restore" class="btn danger">一键还原</button>
+            <button id="btn-fix" class="btn ghost">修复校验</button>
+            <button id="btn-refresh" class="btn ghost">刷新状态</button>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">目标安装</div>
+            <div class="field">
+              <label for="install-path">安装目录</label>
+              <div class="row">
+                <input id="install-path" type="text" spellcheck="false" placeholder="C:\Program Files\Cursor" />
+                <button id="btn-browse-install" class="btn ghost sm">浏览</button>
+              </div>
+            </div>
+            <label class="check">
+              <input id="langpack" type="checkbox" checked />
+              <span>安装 / 更新官方简体中文语言包</span>
+            </label>
+            <div class="field">
+              <label for="userdata-path">用户数据目录</label>
+              <div class="row">
+                <input id="userdata-path" type="text" spellcheck="false" />
+                <button id="btn-browse-userdata" class="btn ghost sm">浏览</button>
+              </div>
+            </div>
+          </div>
+
+          <p class="tips">提示：装在 Program Files 时请以管理员身份运行；出现「安装已损坏」请点「修复校验」。</p>
+        </section>
+
+        <section id="view-log" class="page">
+          <div class="panel log-panel">
+            <div class="panel-bar">
+              <div class="panel-title">运行记录</div>
+              <button id="btn-clear-log" class="btn ghost sm">清空</button>
+            </div>
+            <pre id="log" class="log"></pre>
+          </div>
+        </section>
+
+        <section id="view-about" class="page">
+          <div class="panel about-panel">
+            <div class="panel-title">关于软件</div>
+            <div class="about-grid">
+              <div class="about-item"><span>名称</span><strong>译窗</strong></div>
+              <div class="about-item"><span>版本</span><strong>1.0</strong></div>
+              <div class="about-item"><span>说明</span><strong>一键汉化 Cursor，支持安装、还原与校验</strong></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div id="busy" class="busy hidden">
+        <div class="busy-card">
+          <div class="spinner"></div>
+          <div>
+            <div id="busy-text" class="busy-title">处理中</div>
+            <div class="busy-sub">请稍候，不要关闭窗口</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
